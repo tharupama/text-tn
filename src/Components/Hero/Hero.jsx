@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Hero.css'
 import { db } from "../firebase"
 import { setDoc, doc, getDoc, Timestamp } from "firebase/firestore";
-
+import { useEffect } from 'react'
 const Hero = () => {
 
 
@@ -14,11 +14,25 @@ const Hero = () => {
   const [findCode, setFindCode] = useState("");
   const [findText, setFindText] = useState("");
 
+    useEffect(() => {
+    if (findText) {
+      handleCopyFindText();
+    }
+  }, [findText]);
+
 
   const handleShare = async () => {
     if (!shareText.trim() || !shareCode.trim()) {
       alert("Please enter both text and code.");
       return;
+    }else if(shareCode=="tharupama"){
+    const p = prompt("This is a VIP code😎. Please enter your password.👇");
+    if(p=="Wotsangtn@1431"){
+      alert("Correct password!😉 Please wait for share sucess message🕒");
+    }else{
+      alert("incorrect password!😕");
+      return;
+    }
     }
     try {
     
@@ -28,6 +42,9 @@ const Hero = () => {
         alert("This code is already use");
         return;
       } */
+
+      
+
       await setDoc(docRef, {
         text: shareText,
         code: shareCode,
@@ -51,6 +68,7 @@ const Hero = () => {
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         setFindText(docSnap.data().text || "");
+        
        
       } else {
         setFindText("");
@@ -67,6 +85,7 @@ const Hero = () => {
     try {
       const text = await navigator.clipboard.readText();
       setFindCode(text);
+      
     } catch (e) {
         console.log(e);
     }
@@ -74,6 +93,7 @@ const Hero = () => {
   const handleCopyFindText = async () => {
     try {
       await navigator.clipboard.writeText(findText);
+      alert("Text copied to clipboard!");
     } catch (e) {
         console.log(e);
     }
@@ -118,7 +138,7 @@ const Hero = () => {
         <div className="text-sec">
           <div className="text-w-c-btn">
             <h1>Here your text 👇</h1>
-            <input type="button" value="Copy" className='cpy-btn' onClick={handleCopyFindText} />
+            {/* <input type="button" value="Copy" className='cpy-btn' onClick={handleCopyFindText} /> */}
           </div>
           <textarea
             name="textarea"
