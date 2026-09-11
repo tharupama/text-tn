@@ -1,0 +1,121 @@
+.page{
+    background-color: #4D55CC;
+    border-radius: 20px;
+    padding: 50px;
+    margin: 40px 170px;
+    color: white;
+}
+.page h1{
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+.page h2{
+    font-size: 28px;
+    margin: 35px 0 15px 0;
+}
+.page p{
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+.page ul, .page ol{
+    margin-left: 25px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+.page li{
+    margin-bottom: 10px;
+}
+.page a{
+    color: #211C84;
+    font-weight: 600;
+}
+.page-subtitle{
+    font-size: 20px;
+    color: #E8E2F7;
+    margin-bottom: 25px;
+}
+.updated{
+    font-size: 15px;
+    color: #E8E2F7;
+    margin-bottom: 20px;
+}
+.faq-details{
+    background-color: #7A73D1;
+    border-radius: 15px;
+    padding: 20px 25px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+.faq-details summary{
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.faq-details p{
+    margin: 15px 0 0 0;
+    font-size: 17px;
+    color: #F2EEFB;
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+    max-width: 600px;
+}
+.contact-form label{
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 5px;
+}
+.contact-form input, .contact-form textarea{
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Outfit';
+    font-size: 16px;
+    background-color: white;
+}
+.contact-form textarea{
+    height: 150px;
+    resize: vertical;
+}
+.contact-form button{
+    padding: 15px 35px;
+    width: fit-content;
+    border: none;
+    border-radius: 60px;
+    font-family: 'Outfit';
+    font-size: 18px;
+    color: white;
+    background-color: #211C84;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.contact-form button:hover{
+    background-color: #B5A8D5;
+}
+.contact-success{
+    margin-top: 20px;
+    font-size: 18px;
+    color: #E8E2F7;
+}
+@media(max-width:768px){
+    .page{
+        margin: 20px;
+        padding: 30px 20px;
+    }
+    .page h1{
+        font-size: 32px;
+    }
+    .page h2{
+        font-size: 24px;
+    }
+    .page p, .page ul, .page ol{
+        font-size: 16px;
+    }
+    .faq-details summary{
+        font-size: 17px;
+    }
+}

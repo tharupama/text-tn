@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 const Hero = () => {
 
 
+  const [current, setCurrent] = useState("find");
   const [shareText, setShareText] = useState("");
   const [shareCode, setShareCode] = useState("");
 
@@ -116,7 +117,18 @@ const Hero = () => {
 
   return (
     <div className='hero'>
-      <div className="find-text" id="find-text">
+      <div className="tabs">
+        <button
+          className={current === "find" ? "tab-btn active" : "tab-btn"}
+          onClick={() => setCurrent("find")}
+        >Find text</button>
+        <button
+          className={current === "share" ? "tab-btn active" : "tab-btn"}
+          onClick={() => setCurrent("share")}
+        >Share text</button>
+      </div>
+
+      <div className={current === "share" ? "find-text nshow" : "find-text"} id="find-text">
         <div className="code-sec">
           <div className="e-w-p">
             <h1>Enter code 👇</h1>
@@ -151,7 +163,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="share-text" id='share-text'>
+      <div className={current === "share" ? "share-text show" : "share-text"} id='share-text'>
         <div className="texts-sec">
           <div className="w-paste">
             <h1>Enter text 👇</h1>

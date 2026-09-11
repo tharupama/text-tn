@@ -1,29 +1,17 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 import './Navbar.css'
-import '../Hero/Hero'
-import '../Hero/Hero.css'
+
 const Navbar = () => {
-  const [action, setAction] = useState("find");
-  function shareText(){
-    const element = document.getElementById("share-text");
-    const element2 = document.getElementById("find-text");
-    element.classList.add("show");
-    element2.classList.add("nshow");  
-    setAction("share");
-  }
-  function findText(){
-    const element = document.getElementById("share-text");
-    const element2 = document.getElementById("find-text");
-    element.classList.remove("show");
-    element2.classList.remove("nshow")
-    setAction("find");
-  }
-  
   return (
     <div className='navbar'>
+        <div className='nav-logo'>EasyTextShare</div>
         <ul className='nav-menu'>
-            <li onClick={findText}className={action === "share" ? "gray" : "ngray"}>Find text</li>
-            <li onClick={shareText}className={action=== "find"? "gray":"ngray"}>Share text</li>
+            <li><NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"} end>Home</NavLink></li>
+            <li><NavLink to="/about" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>About</NavLink></li>
+            <li><NavLink to="/how-it-works" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>How It Works</NavLink></li>
+            <li><NavLink to="/faq" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>FAQ</NavLink></li>
+            <li><NavLink to="/contact" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Contact</NavLink></li>
         </ul>
     </div>
   )
